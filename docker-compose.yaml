@@ -1,4 +1,4 @@
-version: "3"
+version: "3.4"
 services:
   database:
     image: postgres:11-alpine
@@ -10,20 +10,14 @@ services:
       - "5433:5432"
     volumes:
       - db-data:/var/lib/postgresql/data  
-  # frontend:
-  #   image: node:14
-  #   build: ./frontend
-  #   command: npm start
-  #   environment: 
-  #     - BROWSER=none
-  #     - NODE_ENV=production
-  #   working_dir: /home/node/app
-  #   ports:
-  #       - "3000:3000"
-  #   volumes:
-  #       - ./frontend:/home/node/app
-  #       - /frontend/node_modules
+  backend:
+    build: .
+    ports:
+      - "8080:8080"
+    image: "gradle:latest"
+    links: 
+      -  "database"
+
 
 volumes:
   db-data:
-  
