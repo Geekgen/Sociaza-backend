@@ -1,0 +1,29 @@
+version: "3"
+services:
+  database:
+    image: postgres:11-alpine
+    environment:
+       - POSTGRES_DB=skeleton 
+       - POSTGRES_USER=skeleton_user
+       - POSTGRES_PASSWORD=skeleton_pass
+    ports:
+      - "5433:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data  
+  # frontend:
+  #   image: node:14
+  #   build: ./frontend
+  #   command: npm start
+  #   environment: 
+  #     - BROWSER=none
+  #     - NODE_ENV=production
+  #   working_dir: /home/node/app
+  #   ports:
+  #       - "3000:3000"
+  #   volumes:
+  #       - ./frontend:/home/node/app
+  #       - /frontend/node_modules
+
+volumes:
+  db-data:
+  
