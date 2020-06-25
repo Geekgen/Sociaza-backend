@@ -15,18 +15,6 @@ configurations {
 	}
 }
 
-//create a single Jar with all dependencies
-task fatJar(type: Jar) {
-	manifest {
-        attributes 'Implementation-Title': 'Gradle Jar File Example',
-        	'Implementation-Version': version,
-        	'Main-Class': 'com.geekgen.sociaza.SociazaApplication'
-    }
-    baseName = project.name + '-all'
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
-}
-
 repositories {
 	mavenCentral()
 }
@@ -40,7 +28,7 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	runtimeOnly 'org.postgresql:postgresql'
 	implementation 'com.auth0:java-jwt:3.10.3'
-	testCompile "org.mockito:mockito-core:1.+"
+	implementation "org.mockito:mockito-core:1.+"
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
@@ -49,10 +37,4 @@ dependencies {
 
 test {
 	useJUnitPlatform()
-}
-
-tasks.register("runDev") {
-	doLast {
-
-	}
 }
