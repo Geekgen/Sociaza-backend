@@ -1,6 +1,7 @@
 HELP.md
 .gradle
 .idae
+.vscode
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**
@@ -35,3 +36,5 @@ out/
 
 ### .DS_Store ###
 *.DS_Store
+
+*.vscode
