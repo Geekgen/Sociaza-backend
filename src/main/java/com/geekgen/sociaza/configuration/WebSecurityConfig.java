@@ -16,6 +16,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import com.geekgen.sociaza.authentication.CustomUserDetailsService;
 import com.geekgen.sociaza.authentication.JWTAuthFilter;
 import com.geekgen.sociaza.authentication.JWTEncoderDecoder;
+import org.springframework.web.client.RestTemplate;
 
 @Configuration
 @EnableWebSecurity
@@ -68,4 +69,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .userDetailsService(userDetailsService)
                 .passwordEncoder(bCryptPasswordEncoder());
     }
+
+
+    @Bean
+    public RestTemplate rest() {
+        return new RestTemplate();
+    }
+
 }
