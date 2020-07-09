@@ -1,4 +1,4 @@
-package com.geekgen.sociaza.posts;
+package com.geekgen.sociaza.mapbox;
 
 import java.util.ArrayList;
 import java.util.List;
