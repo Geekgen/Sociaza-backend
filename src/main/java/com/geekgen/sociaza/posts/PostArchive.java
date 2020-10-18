@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -20,8 +21,10 @@ public class PostArchive {
 
     @Scheduled(fixedDelay = 30 * 1000)
     public void archivePastPosts() {
-        List<Post> databasePosts = postService.getAll();
+        //List<Post> databasePosts = postService.getAll();
+        List<Post> databasePosts = new ArrayList<Post>() ;
         LocalDateTime currentDateTime = LocalDateTime.now();
+
 
         for (Post post : databasePosts) {
 

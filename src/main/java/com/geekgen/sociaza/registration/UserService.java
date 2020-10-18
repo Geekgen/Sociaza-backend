@@ -26,8 +26,8 @@ public class UserService {
         userRepository.save(user);
 
         String mailFromUser = user.getEmail();
-        emailService.sendSimpleMessage(mailFromUser, "Sociaza registration" ,
-                "You have been successfully registered to Sociaza.");
+        //emailService.sendSimpleMessage(mailFromUser, "Sociaza registration" ,
+                //"You have been successfully registered to Sociaza.");
 
     }
 }
