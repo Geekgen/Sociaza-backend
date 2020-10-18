@@ -45,6 +45,13 @@ public class PostService {
         return postRepository.findById(id);
     }
 
+    public List<Post> getByType(String type) {
+        List<Post> posts = postRepository.findAll();
+        return posts.stream()
+                .filter(p -> p.getServiceType().equals(type))
+                .collect(Collectors.toList());
+    }
+
     public Post save(Post post) {
         if (post.getStatus() != Post.Status.ARCHIVED) {
             post.setStatus(Post.Status.ACTIVE);

@@ -47,6 +47,10 @@ public class PostController {
         return postService.getByID(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
+    @GetMapping("/byType/{type}")
+    public List<Post> getByType(@PathVariable String type) {
+        return postService.getByType(type);
+    }
 
     @PostMapping("")
     public Post savePost(@RequestBody Post newPost ) {
